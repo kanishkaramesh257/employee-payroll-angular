@@ -1,59 +1,126 @@
-# EmployeePayrollAngular
+# Employee Payroll Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.24.
+A web-based Employee Payroll Management System developed using Angular for the frontend, Spring Boot for the backend, and MySQL for database management.
 
-## Development server
+## Problem Statement
 
-To start a local development server, run:
+Managing employee information, departments, salary records, and payroll manually can lead to duplicated or inconsistent data, calculation errors, and delays in preparing payroll reports. This project provides a centralized web application for maintaining employee and department records, generating salary information, and viewing payroll-related reports. It also preserves data integrity by preventing deletion of records that are still referenced by related data.
 
-```bash
-ng serve
+## Features
+
+* Employee management
+
+  * View employees
+  * Add employees
+  * Edit employees
+  * Delete employees
+* Department management
+
+  * View departments
+  * Add departments
+  * Edit departments
+  * Delete departments
+* Salary management
+
+  * View salary records
+  * Generate employee salary
+  * Calculate net salary
+* Payroll management
+
+  * Select employee
+  * Enter basic salary, allowance, and deduction
+  * Generate payroll successfully
+* Reports
+
+  * Employee salary details
+  * Employees earning above department average
+* Database relationship handling
+
+  * Prevents deletion when related payroll records exist
+  * Prevents deletion of departments assigned to employees
+
+## Technologies Used
+
+* Angular
+* TypeScript
+* HTML5
+* CSS3
+* Spring Boot
+* Java
+* MySQL
+* REST API
+
+## Project Architecture
+
+```text
+Angular Frontend
+       |
+       | REST API
+       v
+Spring Boot Backend
+       |
+       | JDBC / JPA
+       v
+MySQL Database
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Main Modules
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+Dashboard
+Employees
+Departments
+Salary Records
+Payroll
+Reports
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Running the Frontend
+
+Make sure the Spring Boot backend and MySQL database are running first.
+
+Then open a terminal in the Angular project folder and run:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+The application runs on:
 
-To build the project run:
-
-```bash
-ng build
+```text
+http://localhost:4200
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Backend
 
-## Running unit tests
+The Angular application communicates with the Spring Boot backend through REST APIs running on:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```text
+http://localhost:8082
 ```
 
-## Running end-to-end tests
+## Payroll Generation
 
-For end-to-end (e2e) testing, run:
+The Payroll module accepts:
 
-```bash
-ng e2e
-```
+* Employee
+* Basic Salary
+* Allowance
+* Deduction
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The salary is generated through the backend and stored in the MySQL database.
 
-## Additional Resources
+## Reports
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The Reports module provides:
+
+1. Employee salary details with department information.
+2. Employees whose salary is above the average salary of their department.
+
+## Validation and Data Integrity
+
+The system maintains database relationships between employees, departments, and payroll records. Employees with existing salary history and departments containing employees cannot be deleted directly, preventing accidental loss of related payroll data.
+
+## Author
+
+Employee Payroll Management System Project
