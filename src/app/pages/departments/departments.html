@@ -1,0 +1,91 @@
+<div class="departments-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Departments</h1>
+      <p>Manage department information</p>
+    </div>
+
+    <button class="add-button" (click)="openAddForm()">
+      + Add Department
+    </button>
+  </div>
+
+  @if (showForm) {
+    <div class="form-card">
+
+      <h2>{{ editingId === null ? 'Add Department' : 'Edit Department' }}</h2>
+
+      <div class="form-group">
+        <label>Department Name</label>
+
+        <input
+          type="text"
+          [(ngModel)]="departmentName"
+          placeholder="Enter department name">
+      </div>
+
+      <div class="form-actions">
+
+        <button class="save-button" (click)="saveDepartment()">
+          {{ editingId === null ? 'Save Department' : 'Update Department' }}
+        </button>
+
+        <button class="cancel-button" (click)="cancelForm()">
+          Cancel
+        </button>
+
+      </div>
+
+    </div>
+  }
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (department of departments; track department.departmentId) {
+
+          <tr>
+
+            <td>{{ department.departmentId }}</td>
+
+            <td>{{ department.departmentName }}</td>
+
+            <td class="actions">
+
+              <button
+                class="edit-button"
+                (click)="editDepartment(department)">
+                Edit
+              </button>
+
+              <button
+                class="delete-button"
+                (click)="deleteDepartment(department.departmentId)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

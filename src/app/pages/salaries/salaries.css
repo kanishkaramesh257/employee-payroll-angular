@@ -1,0 +1,54 @@
+.salaries-page {
+  width: 100%;
+}
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+}
+
+.page-header p {
+  margin: 0;
+  color: #777;
+}
+
+.table-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 22px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th,
+td {
+  padding: 13px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8f9fa;
+  font-size: 14px;
+  color: #333;
+}
+
+td {
+  font-size: 14px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #777;
+  padding: 25px;
+}

@@ -1,0 +1,76 @@
+<div class="salaries-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Salary Records</h1>
+      <p>View employee salary information</p>
+    </div>
+  </div>
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Salary ID</th>
+          <th>Employee</th>
+          <th>Basic Salary</th>
+          <th>Allowance</th>
+          <th>Deduction</th>
+          <th>Net Salary</th>
+          <th>Salary Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (salary of salaryRecords; track salary.salaryId) {
+
+          <tr>
+
+            <td>{{ salary.salaryId }}</td>
+
+            <td>
+              {{ salary.employee?.employeeName }}
+            </td>
+
+            <td>
+              ₹{{ salary.basicSalary }}
+            </td>
+
+            <td>
+              ₹{{ salary.allowanceAmount }}
+            </td>
+
+            <td>
+              ₹{{ salary.deduction }}
+            </td>
+
+            <td>
+              ₹{{ salary.netSalary }}
+            </td>
+
+            <td>
+              {{ salary.salaryDate }}
+            </td>
+
+          </tr>
+
+        }
+
+        @if (salaryRecords.length === 0) {
+          <tr>
+            <td colspan="7" class="empty-message">
+              No salary records found.
+            </td>
+          </tr>
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

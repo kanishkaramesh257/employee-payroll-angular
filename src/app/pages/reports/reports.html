@@ -1,0 +1,121 @@
+<div class="reports-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Reports</h1>
+      <p>Employee salary and payroll reports</p>
+    </div>
+  </div>
+
+  <!-- Salary Details Report -->
+
+  <div class="report-card">
+
+    <h2>Employee Salary Details</h2>
+    <p class="report-description">
+      Salary information along with department details
+    </p>
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Basic Salary</th>
+            <th>Allowance</th>
+            <th>Deduction</th>
+            <th>Net Salary</th>
+            <th>Salary Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          @for (record of salaryDetails; track $index) {
+
+            <tr>
+              <td>{{ record[0] }}</td>
+              <td>{{ record[1] }}</td>
+              <td>{{ record[2] }}</td>
+              <td>₹{{ record[3] }}</td>
+              <td>₹{{ record[4] }}</td>
+              <td>₹{{ record[5] }}</td>
+              <td>₹{{ record[6] }}</td>
+              <td>{{ record[7] }}</td>
+            </tr>
+
+          }
+
+          @if (salaryDetails.length === 0) {
+            <tr>
+              <td colspan="8" class="empty-message">
+                No salary details found.
+              </td>
+            </tr>
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <!-- Above Department Average Report -->
+
+  <div class="report-card">
+
+    <h2>Employees Above Department Average</h2>
+    <p class="report-description">
+      Employees whose basic salary is above their department average
+    </p>
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Basic Salary</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          @for (employee of aboveAverageEmployees; track $index) {
+
+            <tr>
+              <td>{{ employee[0] }}</td>
+              <td>{{ employee[1] }}</td>
+              <td>{{ employee[2] }}</td>
+              <td>₹{{ employee[3] }}</td>
+            </tr>
+
+          }
+
+          @if (aboveAverageEmployees.length === 0) {
+            <tr>
+              <td colspan="4" class="empty-message">
+                No employees found.
+              </td>
+            </tr>
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
